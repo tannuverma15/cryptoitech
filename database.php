@@ -25,7 +25,7 @@ if(mysqli_query($conn, $sql)){
   echo "new recorded successfully";
 }
 else{
-  echo "Error!!";
+  echo "Error!! Data might already exists";
 
 }   
 mysqli_close($conn); 

@@ -1,7 +1,6 @@
 <?php
 
 // if (isset($_POST['submit'])) {
-
     // Connect to the database
     $servername = "localhost";
     $username = "root";
@@ -17,8 +16,6 @@
         die("Connection failed: " . $conn->connect_error);
     } 
 
-
-
     $Name = $_POST['updateName'];
     $Email = $_POST['updateEmail'];
     $Mobile = $_POST['updateMobile'];
@@ -26,16 +23,23 @@
     // $oldpass = $_POST('oldpass');
 
     // Update data into the database 
-    $sql = "UPDATE signup SET name='$Name', email='$Email', mobile='$Mobile', city='$City' WHERE Name='$Name'";
+    $sql = "UPDATE signup SET email='$Email', mobile='$Mobile', city='$City' WHERE Name='$Name'";
 
     if ($conn->query($sql) === TRUE) {
         // echo "Record updated successfully";
         echo "<script>window.location.href='display.php'</script>";
+        // echo "ABORTING!\n";
     
-    } else {
+    } 
+    elseif(Name!='$Name')
+    {
+        echo "Invalid name";
+    }
+    
+    else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
         $conn->close();
-    
+
 ?>

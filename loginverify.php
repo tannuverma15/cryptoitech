@@ -27,7 +27,8 @@ if($conn->connect_error){
 
 	}
 	else{
-		echo "Login Failed";
+	 echo "Invalid Username or Password";
+		
 	}
 
 ?>
